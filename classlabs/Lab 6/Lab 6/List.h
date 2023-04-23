@@ -4,15 +4,48 @@
 
 struct Node {
     int key;
-    Node* next;
-    Node* prev;
+    Node* next = NULL;
+    Node* prev = NULL;
+    Node();
+    Node(int k, Node* n, Node* p);
+};
 
-    Node(int k, Node* n = NULL, Node* p = NULL) {
-        key = k;
-        next = n;
-        prev = p;
+
+class Iterator {
+    friend class List;
+private:
+    Node* current = NULL;
+public:
+    Iterator() { current = NULL; }
+    Iterator(Node* node) : current(node) {}
+    bool operator==(const Iterator& other) const { //сравнивают текущий узел
+        return current == other.current;           // и узел другого итератора 
+    }                                              //
+    bool operator!=(const Iterator& other) const { // на равенство и неравенство.
+        return current != other.current;
+    }
+    int& operator*() const { // операци€ разыменовани€ итератора
+        return current->key;
+    }
+    Iterator& operator++() { //++i
+        current = current->next;
+        return *this;
+    }
+    Iterator operator++(int) { // i++
+        Iterator old = *this;
+        current = current->next;
+        return old;
+    }
+    Iterator operator+(int n) const { // переход вправо к n элементу
+        Iterator it(*this);
+        while (n > 0 && it.current != NULL) {
+            it.current = it.current->next;
+            n--;
+        }
+        return it;
     }
 };
+
 
 class List {
     Node* head;
@@ -28,130 +61,30 @@ public:
     ~List() {
         clear();
     }
-    int& get(int index) {
-        Node* current = head; // начинаем с головы списка
-        int i = 0;
-       while(i < index && current->next != NULL) {
-            current = current->next; // переходим к следующему узлу
-       }
-        return current->key; // возвращаем ссылку на данные узла
-    }
-    
+    int& get(int index);
+
     int& operator[](int index) {
         return get(index); // возвращаем ссылку на элемент по индексу
     }
     // ћетод добавлени€ элемента в конец списка
-    void push_back(int k) {
-        Node* node = new Node(k); // —оздаем новый узел
-        if (tail == NULL) { // ≈сли список пустой
-            head = node; 
-            tail = node;
-        }
-        else { // ≈сли список не пустой
-            node->prev = tail; 
-            tail->next = node; 
-            tail = node; 
-        }
-        size++;
-    }
-
-    // ћетод добавлени€ элемента в начало списка
-    void push_front(int k) {
-        Node* node = new Node(k); // —оздаем новый узел
-        if (head == NULL) { // ≈сли список пустой
-            head = node; 
-            tail = node;
-        }
-        else { // ≈сли список не пустой
-            node->next = head;
-            head->prev = node; 
-            head = node;
-        }
-        size++;
-    }
-
-    void pop(int key) {
-        Node* p = head; 
-        while (p != NULL && p->key != key) { // ѕроходим по списку до нужного ключа
-            p = p->next;
-        }
-        if (p != NULL) { // ≈сли нашли узел по позиции
-            if (p->prev != NULL) { // ≈сли узел не €вл€етс€ головным
-                p->prev->next = p->next; 
-            }
-            else { // ≈сли узел €вл€етс€ головным
-                head = p->next; 
-            }
-            if (p->next != NULL) { // ≈сли узел не €вл€етс€ хвостовым
-                p->next->prev = p->prev; 
-            }
-            else { // ≈сли узел €вл€етс€ хвостовым
-                tail = p->prev; 
-            }
-            delete p; // ”дал€ем текущий узел из пам€ти
-            size--; 
-        }
-    }
+    void push_back(int k);
+    void pop(int key);
 
     int list_size() {
         return size;
     }
 
-    void clear() {
-        Node* p = head; 
-        while (p != NULL) {  
-            Node* q = p; 
-            p = p->next; 
-            delete q; // ”дал€ем текущий узел из пам€ти
-        }
-        head = NULL; 
-        tail = NULL;
-        size = 0; 
-    }
+    void clear();
+    void print() const;
 
-    void print() {
-        Node* node = head; 
-        while (node != NULL) { 
-            std::cout << node->key << "->"; 
-            node = node->next; 
-        }
-        std::cout << std::endl; 
-    }
-  class Iterator
-    {
-    private:
-        List* list;
-        int in;
-    public:
-        Iterator() {}
-        Iterator(List* list, int index) {
-            this->list = list;
-            this->in = index;
-        }
-        int& operator*() {
-            if (this == nullptr)
-                return list->get(in);
-            else
-                return in;
-        }
-        bool operator!=(const Iterator& other) {
-            return list != other.list || in != other.in; // сравниваем указатели и индексы
-        }
+    friend std::ostream& operator<<(std::ostream& out, const List& list);
+    friend std::istream& operator>>(std::istream& in, List& list);
 
-        // оператор ++
-        Iterator& operator++() {
-            in++; // увеличиваем индекс
-            return *this; // возвращаем себ€
-        }
-        friend Iterator operator+(const Iterator& it, int n) {
-            return Iterator(it.list, it.in + n); // возвращаем новый итератор с увеличенным индексом
-        }
-    };
-    Iterator beg(){
-        return Iterator(this, 0); // возвращаем итератор на первый элемент
+    Iterator beg() {
+        return Iterator(head); // возвращаем итератор на первый элемент
     }
     Iterator end() {
-        return Iterator(this, size); // возвращаем итератор за последний элемент
+        return Iterator(tail); // возвращаем итератор на последний элемент
     }
     friend List operator*(List& left, List& right) {
         List result; // создаем новый список
