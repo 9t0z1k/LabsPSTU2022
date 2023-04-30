@@ -1,0 +1,5 @@
+﻿  Source.cpp
+C:\Users\yatoz\source\repos\Lab 11\Lab 11\Source.cpp(74,21): warning C4267: '/=': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\yatoz\source\repos\Lab 11\Lab 11\Source.cpp(179,24): warning C4267: '/=': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\yatoz\source\repos\Lab 11\Lab 11\Source.cpp(245,12): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
+  Lab 11.vcxproj -> C:\Users\yatoz\source\repos\Lab 11\x64\Debug\Lab 11.exe
