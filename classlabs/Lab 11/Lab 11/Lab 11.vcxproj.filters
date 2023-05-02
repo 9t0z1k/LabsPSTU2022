@@ -21,6 +21,12 @@
     <ClInclude Include="Pair.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="ListL.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ListPQ.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Pair.cpp">

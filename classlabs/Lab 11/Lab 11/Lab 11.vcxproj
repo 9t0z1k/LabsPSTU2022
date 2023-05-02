@@ -128,6 +128,8 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="List.h" />
+    <ClInclude Include="ListL.h" />
+    <ClInclude Include="ListPQ.h" />
     <ClInclude Include="Pair.h" />
   </ItemGroup>
   <ItemGroup>

@@ -3,6 +3,8 @@
 #include <queue>
 #include <algorithm>
 #include "List.h"
+#include "ListL.h"
+#include "ListPQ.h"
 #include "Pair.h"
 
 using namespace std;
@@ -108,55 +110,23 @@ void task2()
 // Задание 3
 void task3()
 {
-	List<Pair> PP;
-	PP.push_back(Pair(1, 1.1));
-	PP.push_back(Pair(2, 2.2));
-	PP.push_back(Pair(3, 3.3));
-	PP.push_back(Pair(4, 4.4));
-	PP.print();
-	/*showLL(PP);*/
-	//Find avg
-	Pair sum(0, 0.0);
-	for (Pair num : PP)
-		sum = sum + num;
-	sum.fNum /= PP.list_size();
-	sum.sNum /= PP.list_size();
-	PP.push_back(sum);
+	ListL<double> L;
+	L.fill_list(6.0);
+	L.print_list();
 	cout << "Find avg and push back to container: \n";
-	PP.print();
-	//find elems
+	L.average();
+	L.print_list();
 	int d1, d2;
 	cout << "Enter range from: "; cin >> d1;
 	cout << " to: "; cin >> d2;
-	Pair key;
-	cout << "Enter key to delete: "; cin >> key;
-	auto s_it = PP.begin();
-	s_it = s_it + d1;
-	auto e_it = PP.begin();
-	e_it = e_it + d2;
-	for (auto it = s_it; it != e_it; ++it)
-	{
-		if (*it == key) {
-			PP.pop(*it);
-			break;
-		}
-	}
+	L.Delete(d1,d2);
+	L.print_list();
 	cout << "After deleting: \n";
-	PP.print();
-	//sum max min
+	L.print_list();
 	cout << "Adding sum to elems: \n";
-	Pair max = PP[0];
-	Pair min = PP[0];
-	for (auto it = PP.begin(); it != PP.end(); ++it)
-	{
-		if (*it > max) max = *it;
-		if (*it < min) min = *it;
-	}
-	/*Pair MMSUM = min_element(PP.begin(), PP.end())
-		+ max_element(PP.begin(), PP.end());*/
-	for (Pair& num : PP)
-		num = num + max + min;
-	PP.print();
+	L.add_sum();
+	L.print_list();
+
 }
 
 // Задание 4
@@ -237,8 +207,13 @@ void task4()
 // Задание 5
 void task5()
 {
-	task3();
-
+	ListPQ <double> LP;
+	LP.fill_LPQ();
+	LP.average();
+	int d1, d2;
+	cout << "Enter range to delete: "; cin >> d1; cin >> d2;
+	LP.Delete(d1,d2);
+	LP.add_sum();
 }
 
 int main()
@@ -246,14 +221,14 @@ int main()
 	srand(time(NULL));
 	cout << "Results: \n";
 	cout << "=================\n\n";
-	cout << "-------TASK1-------\n";
-	task1();
-	cout << "-------TASK2-------\n";
-	task2();
-	cout << "-------TASK3-------\n";
-	task3();
-	cout << "-------TASK4-------\n";
-	task4();
+	//cout << "-------TASK1-------\n";
+	//task1();
+	//cout << "-------TASK2-------\n";
+	//task2();
+	/*cout << "-------TASK3-------\n";
+	task3();*/
+	/*cout << "-------TASK4-------\n";
+	task4();*/
 	cout << "-------TASK5-------\n";
 	task5();
 	
