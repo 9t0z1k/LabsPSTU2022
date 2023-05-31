@@ -1,0 +1,12 @@
+﻿C:\Program Files\Microsoft Visual Studio\2022\Professional\MSBuild\Microsoft\VC\v170\Microsoft.CppBuild.targets(517,5): warning MSB8028: The intermediate directory (x64\Debug\) contains files shared from another project (GraphVoy.vcxproj).  This can lead to incorrect clean and rebuild behavior.
+  Graph.cpp
+  main.cpp
+C:\Users\yatoz\source\repos\GraphVoy\GraphVoy\Graph.h(292,15): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+C:\Users\yatoz\source\repos\GraphVoy\GraphVoy\Graph.h(277,48): message : while compiling class template member function 'void Graph<int>::visualizeGraph(Graph<int> &)'
+C:\Users\yatoz\source\repos\GraphVoy\GraphVoy\main.cpp(58,25): message : see reference to function template instantiation 'void Graph<int>::visualizeGraph(Graph<int> &)' being compiled
+C:\Users\yatoz\source\repos\GraphVoy\GraphVoy\main.cpp(34,34): message : see reference to class template instantiation 'Graph<int>' being compiled
+C:\Users\yatoz\source\repos\GraphVoy\GraphVoy\Graph.h(38): warning C4267: 'return': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\yatoz\source\repos\GraphVoy\GraphVoy\Graph.h(38,1): message : while compiling class template member function 'int Graph<int>::getAmountVertexes(void)'
+C:\Users\yatoz\source\repos\GraphVoy\GraphVoy\Graph.h(189,8): message : see reference to function template instantiation 'int Graph<int>::getAmountVertexes(void)' being compiled
+  Generating Code...
+  GraphVoy.vcxproj -> C:\Users\yatoz\source\repos\GraphVoy\x64\Debug\Graph.exe
