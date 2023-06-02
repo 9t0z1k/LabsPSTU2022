@@ -1,0 +1,47 @@
+﻿  Source.cpp
+C:\Users\yatoz\source\repos\Tree\Tree\Tree.h(256,32): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\yatoz\source\repos\Tree\Tree\Tree.h(260,46): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\yatoz\source\repos\Tree\Tree\Tree.h(260,30): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\yatoz\source\repos\Tree\Tree\Tree.h(270,62): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\yatoz\source\repos\Tree\Tree\Tree.h(270,41): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\yatoz\source\repos\Tree\Tree\Tree.h(280,46): warning C4244: 'argument': conversion from 'int' to 'T', possible loss of data
+          with
+          [
+              T=float
+          ]
+C:\Users\yatoz\source\repos\Tree\Tree\Tree.h(280,41): warning C4244: 'argument': conversion from 'int' to 'T', possible loss of data
+          with
+          [
+              T=float
+          ]
+C:\Users\yatoz\source\repos\Tree\Tree\Tree.h(281,78): warning C4244: 'argument': conversion from 'int' to 'T', possible loss of data
+          with
+          [
+              T=float
+          ]
+C:\Users\yatoz\source\repos\Tree\Tree\Tree.h(281,43): warning C4244: 'argument': conversion from 'int' to 'T', possible loss of data
+          with
+          [
+              T=float
+          ]
+C:\Users\yatoz\source\repos\Tree\Tree\Tree.h(290,46): warning C4244: 'argument': conversion from 'int' to 'T', possible loss of data
+          with
+          [
+              T=float
+          ]
+C:\Users\yatoz\source\repos\Tree\Tree\Tree.h(290,41): warning C4244: 'argument': conversion from 'int' to 'T', possible loss of data
+          with
+          [
+              T=float
+          ]
+C:\Users\yatoz\source\repos\Tree\Tree\Tree.h(291,78): warning C4244: 'argument': conversion from 'int' to 'T', possible loss of data
+          with
+          [
+              T=float
+          ]
+C:\Users\yatoz\source\repos\Tree\Tree\Tree.h(291,43): warning C4244: 'argument': conversion from 'int' to 'T', possible loss of data
+          with
+          [
+              T=float
+          ]
+  Tree.vcxproj -> C:\Users\yatoz\source\repos\Tree\x64\Debug\Tree.exe
